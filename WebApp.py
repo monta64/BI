@@ -31,47 +31,7 @@ def fetch_data_from_sql(query):
 
     return df
 
-# # Define SQL queries for each table
-# agebands_query = "SELECT * FROM AgeBands;"
-# calendar_query = "SELECT * FROM Calendar;"
-# campaigns_query = "SELECT * FROM Campaigns;"
-# genders_query = "SELECT * FROM Genders;"
-# prjmkgtype_query = "SELECT * FROM PrjmkgType;"
-# segments_query = "SELECT * FROM Segments;"
-# tcomms_trends_query = "SELECT * FROM tcomms_Trends;"
-
-# # Fetch data for each table
-# agebands_data = fetch_data_from_sql(agebands_query)
-# calendar_data = fetch_data_from_sql(calendar_query)
-# campaigns_data = fetch_data_from_sql(campaigns_query)
-# genders_data = fetch_data_from_sql(genders_query)
-# prjmkgtype_data = fetch_data_from_sql(prjmkgtype_query)
-# segments_data = fetch_data_from_sql(segments_query)
-# tcomms_trends_data = fetch_data_from_sql(tcomms_trends_query)
-
-# # Display the data in Streamlit
-# st.title("Data from SQL Server Tables")
-
-# st.subheader("AgeBands Table")
-# st.write(agebands_data)
-
-# st.subheader("Calendar Table")
-# st.write(calendar_data)
-
-# st.subheader("Campaigns Table")
-# st.write(campaigns_data)
-
-# st.subheader("Genders Table")
-# st.write(genders_data)
-
-# st.subheader("PrjmkgType Table")
-# st.write(prjmkgtype_data)
-
-# st.subheader("Segments Table")
-# st.write(segments_data)
-
-# st.subheader("tcomms_Trends Table")
-# st.write(tcomms_trends_data)
+# # 
 tcomms_trends_query = """
 SELECT
     [PrjMkgID],
@@ -118,7 +78,6 @@ st.bar_chart(views_by_age_band)
 st.subheader("Gender Distribution:")
 gender_distribution = tcomms_trends_data['GenderID'].value_counts()
 plt.pie(gender_distribution, labels=gender_distribution.index, autopct='%1.1f%%', startangle=140)
-
 # Example: Scatter plot for NbClicks vs NbViews
 st.subheader("Scatter plot: NbClicks vs NbViews:")
 sns.scatterplot(x='NbViews', y='NbClicks', data=tcomms_trends_data)
