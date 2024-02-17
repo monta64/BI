@@ -48,6 +48,7 @@ with Pyadomd(CONNECTION_STRING) as conn:
 
 # Convert the data to a pandas DataFrame
 df = pd.DataFrame(DataSet)
+print(df)
 df.rename(columns={0:"campaigns", 1:"age_bands", 2:"genders",3:"sent", 4:"dispatched", 5:"deliv",6:"delivRate"}, inplace=True)
 print(df.head())
 # Main content
